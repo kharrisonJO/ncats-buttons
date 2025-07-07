@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="fonts.css" rel="stylesheet">
+  <title>Button Examples</title>
+  <script>
+    // Tailwind CSS 3 configuration
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'dark-purple': '#4c2c78',
+            'medium-purple': '#8875a3',
+            'light-purple': '#dbd2e1',
+            'dark-cream': '#fef5e6',
+            'cream': '#fffaf2',
+            'black': '#2a2a2b',
+            'accent': '#f06000',
+            'accent-red': '#ED0F0F'
+          },
+          fontFamily: {
+            'title': ['"neutra"', 'sans-serif'],
+            'content': ['"proxima-nova"', 'sans-serif'],
+          },
+          boxShadow: {
+            'drop': '4px 4px black',
+            'drop-xl': '8px 8px black',
+          },
+          fontSize: {
+            'h0': 'clamp(3rem, 6vw, 6rem)',
+            'h1': 'clamp(2.25rem, 5vw, 3.75rem)',
+            'h2': 'clamp(1.75rem, 4vw, 2.75rem)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .clipped {
+      position: relative;
+    }
+
+    .clipped::after {
+      content: "";
+      position: absolute;
+      top: 0px;
+      right: -1px;
+      border-width: 0 20px 20px 0;
+      border-style: solid;
+      border-color: #2a2a2b #2a2a2b transparent transparent;
+    }
+
+    .clipped-outline {
+      position: relative;
+      border: 2px solid black;
+    }
+
+    .clipped-outline::after {
+      content: '';
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      border-width: 0 22px 22px 0;
+      border-style: solid;
+      border-color: white white transparent transparent;
+    }
+
+    html,
+    body {
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: "proxima-nova", sans-serif;
+      color: #2a2a2b;
+    }
+
+    .h0 {
+      font-size: clamp(3rem, 6vw, 6rem);
+      font-family: "neutra", sans-serif;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .h2 {
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-family: "neutra", sans-serif;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+  </style>
+</head>
+
+<body class="bg-white font-content">
+
+  <h1 class="text-4xl text-dark-purple m-8 font-title font-bold">Button Examples</h1>
+
+  <!-- Example 1 -->
+  <section class="pb-20">
+    <h2 class="mx-8 text-3xl font-bold text-dark-purple">#1 Current: Orange with Clipped Corners with Black Background
+      and Drop Shadow</h2>
+    <div
+      class="relative bg-[url(/assets/ncats_homepage_wildfire_cat.jpg)] bg-center h-[400px] w-full object-cover object-center sm:h-[600px]">
+      <figure class="absolute top-1/2 left-8 md:left-16 lg:left-18 hidden -translate-y-1/2 sm:block">
+        <figcaption class="max-w-2xl">
+          <h1 class="h0 mb-6 font-bold text-white">He may be feral but he needs us.</h1>
+          <button
+            class="block px-8 py-3 font-bold uppercase w-fit shadow-drop border-1 border-black clipped transition-all duration-100 hover:translate-x-[2px] hover:translate-y-[2px] hover:[box-shadow:0px_0px_rgb(82_82_82)] bg-accent text-white active:bg-dark-purple text-xl">Donate
+            Now</button>
+        </figcaption>
+      </figure>
+    </div>
+    <div class="bg-dark-cream pt-2 sm:pt-0">
+      <div class="mx-auto flex max-w-6xl items-center gap-8 px-4 lg:gap-16">
+        <img src="./assets/banner_cat.svg" alt="Sitting cat illustration"
+          class="w-[120px] shrink-0 grow-0 basis-[120px] translate-y-8" />
+        <div class="flex flex-col items-center gap-2 sm:flex-row sm:items-center lg:gap-16">
+          <p
+            class="font-title text-center text-base leading-tight font-bold uppercase sm:text-left sm:text-xl lg:text-2xl">
+            Your gift means food, shelter and veterinary care for cats in need.
+          </p>
+          <div>
+            <button
+              class="block px-8 py-3 font-bold uppercase w-fit shadow-drop border-1 border-black clipped transition-all duration-100 hover:translate-x-[2px] hover:translate-y-[2px] hover:[box-shadow:0px_0px_rgb(82_82_82)] bg-accent text-white active:bg-dark-purple text-xl">Donate</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Example 2 -->
+  <section class="pb-20">
+    <h2 class="mx-8 text-3xl font-bold text-dark-purple">#2 Red with Clipped Corners and Drop Shadow</h2>
+    <div
+      class="relative bg-[url(/assets/ncats_homepage_wildfire_cat.jpg)] bg-center h-[400px] w-full object-cover object-center sm:h-[600px]">
+      <figure class="absolute top-1/2 left-8 md:left-16 lg:left-18 hidden -translate-y-1/2 sm:block">
+        <figcaption class="max-w-2xl">
+          <h1 class="h0 mb-6 font-bold text-white">He may be feral but he needs us.</h1>
+
+          <div class="transition-all duration-100" style="filter: drop-shadow(4px 6px 0px black);"
+            onmousedown="this.style.filter='drop-shadow(0px 0px 0px transparent)'"
+            onmouseup="this.style.filter='drop-shadow(4px 6px 0px black)'"
+            onmouseleave="this.style.filter='drop-shadow(4px 6px 0px black)'">
+            <button
+              class="text-2xl font-content font-bold uppercase tracking-wide bg-accent-red text-white px-6 py-4 relative overflow-hidden hover:bg-dark-purple transition-all duration-100 active:translate-x-[4px] active:translate-y-[6px]"
+              style="clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);">
+              Donate Now
+            </button>
+          </div>
+        </figcaption>
+      </figure>
+    </div>
+    <div class="bg-dark-cream pt-2 sm:pt-0">
+      <div class="mx-auto flex max-w-7xl items-center gap-8 px-4 lg:gap-16">
+        <img src="./assets/banner_cat.svg" alt="Sitting cat illustration"
+          class="w-[120px] shrink-0 grow-0 basis-[120px] translate-y-8" />
+        <div class="flex flex-col items-center gap-2 sm:flex-row sm:items-center lg:gap-8">
+          <p
+            class="font-title text-center text-base max-w-2xl leading-tight font-bold uppercase sm:text-left sm:text-xl lg:text-2xl">
+            Your gift means food, shelter and veterinary care for cats in need.
+          </p>
+          <div class="transition-all duration-100" style="filter: drop-shadow(4px 6px 0px black);"
+            onmousedown="this.style.filter='drop-shadow(0px 0px 0px transparent)'"
+            onmouseup="this.style.filter='drop-shadow(4px 6px 0px black)'"
+            onmouseleave="this.style.filter='drop-shadow(4px 6px 0px black)'">
+            <button
+              class="text-xl font-content font-bold uppercase tracking-wide bg-accent-red text-white px-6 py-4 relative overflow-hidden hover:bg-dark-purple transition-all duration-100 active:translate-x-[4px] active:translate-y-[6px]"
+              style="clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);">
+              Donate Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-12 mb-8 mx-8">
+      <h2 class="block text-2xl font-bold pb-8">Other Buttons</h2>
+
+      <div class="transition-all duration-100" style="filter: drop-shadow(4px 6px 0px black);"
+        onmousedown="this.style.filter='drop-shadow(0px 0px 0px transparent)'"
+        onmouseup="this.style.filter='drop-shadow(4px 6px 0px black)'"
+        onmouseleave="this.style.filter='drop-shadow(4px 6px 0px black)'">
+        <button
+          class="clipped text-dark-purple text-xl font-content font-bold uppercase tracking-wide bg-white text-black px-6 py-4 relative overflow-hidden hover:text-white hover:bg-dark-purple transition-all duration-100 active:translate-x-[4px] active:translate-y-[6px] border-2 border-black"
+          style="clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);">
+          Learn More
+        </button>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Example 3 -->
+  <section class="pb-20">
+    <h2 class="mx-8 text-3xl font-bold text-dark-purple">#3 Gradient with Shadows</h2>
+    <div
+      class="relative bg-[url(/assets/ncats_homepage_wildfire_cat.jpg)] bg-center h-[400px] w-full object-cover object-center sm:h-[600px]">
+      <figure class="absolute top-1/2 left-8 md:left-16 lg:left-18 hidden -translate-y-1/2 sm:block">
+        <figcaption class="max-w-2xl">
+          <h1 class="h0 mb-6 font-bold text-white">He may be feral but he needs us.</h1>
+          <a class="inline-block w-auto text-center px-6 py-4 text-white font-bold uppercase text-2xl transition-all rounded-md shadow-xl bg-gradient-to-r from-accent to-accent-red hover:bg-gradient-to-b shadow-slate-600 hover:shadow-xl hover:shadow-slate-400 active:from-dark-purple active:to-medium-purple"
+            href="#">Donate Now
+          </a>
+        </figcaption>
+      </figure>
+    </div>
+    <div class="bg-dark-cream pt-2 sm:pt-0">
+      <div class="mx-auto flex max-w-7xl items-center gap-8 px-4 lg:gap-16">
+        <img src="./assets/banner_cat.svg" alt="Sitting cat illustration"
+          class="w-[120px] shrink-0 grow-0 basis-[120px] translate-y-8" />
+        <div class="flex flex-col items-center gap-2 sm:flex-row sm:items-center lg:gap-8">
+          <p
+            class="font-title text-center text-base max-w-2xl leading-tight font-bold uppercase sm:text-left sm:text-xl lg:text-2xl">
+            Your gift means food, shelter and veterinary care for cats in need.
+          </p>
+          <a class="inline-block w-auto text-center px-10 py-4 text-white font-bold uppercase text-2xl transition-all rounded-md shadow-lg bg-gradient-to-r from-accent to-accent-red hover:bg-gradient-to-b shadow-slate-500 shadow-slate-200 hover:shadow-xl hover:shadow-slate-400 active:from-dark-purple active:to-medium-purple"
+            href="">Donate
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="mt-12 mb-8 mx-8">
+      <h2 class="block text-2xl font-bold pb-8">Other Buttons</h2>
+      <a class="w-auto text-center px-10 py-4 text-dark-purple font-bold uppercase text-xl transition-all rounded-md shadow-lg hover:bg-gradient-to-r from-accent to-accent-red hover:bg-gradient-to-b shadow-slate-200 border-2 border-black shadow-slate-200 hover:shadow-xl hover:shadow-slate-400 hover:text-white hover:from-dark-purple hover:to-medium-purple active:bg-gradient-to-b"
+        href="">Learn More
+      </a>
+    </div>
+    </div>
+
+  </section>
+
+  <!-- Example 4 -->
+  <section class="pb-20">
+    <h2 class="mx-8 text-3xl font-bold text-dark-purple">#4 Gradient with Clipped Corner</h2>
+    <div
+      class="relative bg-[url(/assets/ncats_homepage_wildfire_cat.jpg)] bg-center h-[400px] w-full object-cover object-center sm:h-[600px]">
+      <figure class="absolute top-1/2 left-8 md:left-16 lg:left-18 hidden -translate-y-1/2 sm:block">
+        <figcaption class="max-w-2xl">
+          <h1 class="h0 mb-6 font-bold text-white">He may be feral but he needs us.</h1>
+          <a class="inline-block w-auto text-center px-6 py-4 text-white font-bold uppercase text-2xl transition-all bg-gradient-to-r from-accent to-accent-red hover:bg-gradient-to-b active:from-dark-purple active:to-medium-purple"
+            style="clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);" href="#">Donate Now
+          </a>
+        </figcaption>
+      </figure>
+    </div>
+    <div class="bg-dark-cream pt-2 sm:pt-0">
+      <div class="mx-auto flex max-w-7xl items-center gap-8 px-4 lg:gap-16">
+        <img src="./assets/banner_cat.svg" alt="Sitting cat illustration"
+          class="w-[120px] shrink-0 grow-0 basis-[120px] translate-y-8" />
+        <div class="flex flex-col items-center gap-2 sm:flex-row sm:items-center lg:gap-8">
+          <p
+            class="font-title text-center text-base max-w-2xl leading-tight font-bold uppercase sm:text-left sm:text-xl lg:text-2xl">
+            Your gift means food, shelter and veterinary care for cats in need.
+          </p>
+          <a class="inline-block w-auto text-center px-10 py-4 text-white font-bold uppercase text-2xl transition-all bg-gradient-to-r from-accent to-accent-red hover:bg-gradient-to-b  active:from-dark-purple active:to-medium-purple"
+            style="clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);" href="">Donate
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="mt-12 mb-8 mx-8">
+      <h2 class="block text-2xl font-bold pb-8">Other Buttons</h2>
+
+      <button
+        class="clipped bg-white border-2 border-black font-bold text-xl px-6 py-3 uppercase active:bg-dark-purple active:text-white text-dark-purple hover:text-white hover:from-dark-purple hover:bg-gradient-to-r hover:to-medium-purple active:bg-gradient-to-b"
+        style="clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);">Learn
+        More</button>
+
+    </div>
+    </div>
+
+  </section>
+
+</body>
+
+</html>
